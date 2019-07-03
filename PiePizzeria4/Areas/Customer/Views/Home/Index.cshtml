@@ -1,8 +1,9 @@
 ﻿@model HomeViewModel
+
 @section Title{
     <div>
         <h2 class="modal-title" style="color:lightgray">Welcome to the Pie Pizzeria!</h2>
-        <a asp-action="AddEditPizza" class="btn btn-default">Add Pizza</a>
+        <a asp-area="Admin" asp-controller="AdminController" asp-action="AddEditPizza" class="btn btn-default">Add Pizza</a>
     </div>
 }
 
