@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Model.Title</title>
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/styles/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="navbar navbar-inverse bg-inverse text-center" style="background-color:darkred;border-radius:0">
+        <div>
+            @if (IsSectionDefined("Title"))
+            {
+                <h2 class="title">@RenderSection("Title", required: false)</h2>
+            }
+            else
+            {
+                <h2 class="title">The Pie Pizzeria</h2>
+            }
+        </div>
+    </header>
+    @RenderBody()
+</body>
+</html>

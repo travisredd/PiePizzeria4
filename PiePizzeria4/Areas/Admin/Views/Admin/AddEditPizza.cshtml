@@ -1,0 +1,58 @@
+﻿@model PiePizzeria.ViewModels.AddEditPizzaModel
+@section Title{
+    <h2 class="modal-title" style="color:lightgray">@Model.Title</h2>
+}
+
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
+    <input type="hidden" asp-for="@Model.Pie.Id" />
+    <input type="hidden" asp-for="@Model.Title" />
+    <div class="form-group">
+        <label asp-for="@Model.Pie.Name" class="col-md-2 control-label"></label>
+        <span asp-validation-for="@Model.Pie.Name"></span>
+        <div class="col-md-8">
+            <input asp-for="@Model.Pie.Name" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Pie.ShortDescription" class="col-md-2 control-label"></label>
+        <span asp-validation-for="@Model.Pie.ShortDescription"></span>
+        <div class="col-md-8">
+            <textarea rows="2" asp-for="@Model.Pie.ShortDescription" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Pie.LongDescription" class="col-md-2 control-label"></label>
+        <span asp-validation-for="@Model.Pie.LongDescription"></span>
+        <div class="col-md-8">
+            <textarea rows="5" asp-for="@Model.Pie.LongDescription" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Pie.Price" class="col-md-2 control-label"></label>
+        <span asp-validation-for="@Model.Pie.Price"></span>
+        <div class="col-md-8">
+            <input asp-for="@Model.Pie.Price" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Image" class="col-md-2 control-label"></label>
+        <div class="col-md-8">
+            <input type="file" asp-for="@Model.Image" class="form-inline" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Pie.IsPieOfTheWeek" class="col-md-2 control-label"></label>
+        <span asp-validation-for="@Model.Pie.IsPieOfTheWeek"></span>
+        <div class="col-md-8">
+            <input asp-for="@Model.Pie.IsPieOfTheWeek" class="form-inline" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn btn-primary">Save</button>
+            @*<button type="submit" class="btn btn btn-danger" asp-for="Delete">Delete</button>*@
+            <button type="submit" asp-action="Delete" class="btn btn btn-primary">Delete</button>
+        </div>
+    </div>
+</form>
+

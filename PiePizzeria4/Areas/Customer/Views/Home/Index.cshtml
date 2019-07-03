@@ -1,0 +1,29 @@
+﻿@model HomeViewModel
+@section Title{
+    <div>
+        <h2 class="modal-title" style="color:lightgray">Welcome to the Pie Pizzeria!</h2>
+        <a asp-action="AddEditPizza" class="btn btn-default">Add Pizza</a>
+    </div>
+}
+
+@foreach (var pie in Model.Pies)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail" style="@(pie.IsPieOfTheWeek ? "background-color:darkred;" : "background-color:white")">
+            <img class="img img-thumbnail" src="@pie.GetInlineImageSrc()" />
+            <div class="caption">
+                <h3 class="pull-right" style="@(pie.IsPieOfTheWeek ? "color:lightgray;" : "")">@pie.Price.ToString("c")</h3>
+                <h3 class="@(pie.IsPieOfTheWeek ? "text-uppercase" : "text-success")" style="@(pie.IsPieOfTheWeek ? "color:whitesmoke;" : "")">@pie.Name</h3>
+                <p style="@(pie.IsPieOfTheWeek ? "color:lightgray;" : "")">@pie.ShortDescription</p>
+            </div>
+            <div>
+                <form id="@pie.Id" asp-action="AddEditPizza" method="post" style="overflow:hidden">
+                    <input type="hidden" name="id" value="@pie.Id" />
+                    <span class="card-text p-1">
+                        <button type="submit" style="float:right" class="btn btn-warning btn-sm">Edit Pizza</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+}
